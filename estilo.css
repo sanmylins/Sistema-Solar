@@ -1,0 +1,84 @@
+/* comentario */
+
+/*
+
+@Programith
+
+*/
+
+body {
+    margin: 0; /*forçar a imagem preta a ficar no lugar*/
+    height: 100vh; /*adaptação da imagem*/
+    display: flex; /*exibição flexivel ao aparelho  */
+    align-items: center; /*alinhar os itens no centro*/
+    background-color: black; /*deine a cor de fundo em preto*/
+    justify-content: center; /*colocar os itens no centro*/
+    overflow: hidden; /*determina que o conteudo não passe a barra de rolagem*/
+}
+.container { /*CONTAINER QUE VAI FICAR O SOL, A LUA E A TERRA*/
+    font-size: 10px; /*definir o tamanho da fonte*/
+    width: 40em; /*define a largura do circulo*/
+    height: 40em; /*define a altura do círculo*/
+    position: relative; /*posição relativa*/
+}
+.sun {
+    position: absolute;
+    top: 15em; /*define a posição do item em relação a estar em cima ou embaixo da estrutura*/
+    left: 15em; /*define a posição do item em relação a direita ou esquerda*/
+    width: 10em; /*define a largura da estrutura*/
+    height: 10em; /* define a altura da estrutura*/
+    background-color: yellow; /*define a cor da estutura*/
+    border-radius: 50%; /*define o quanto o círculo ficará redondo*/
+    box-shadow: 0 0 3em white; /*luz de fundo do círculo*/
+}
+.earth,
+.moon {
+    position: absolute; /* define a posição, sendo ela absoluta*/
+    border-style: solid; /*define o tipo da estrutura*/
+    border-color: white transparent transparent transparent; /*define a cor da borda*/
+    border-width: 0.1em 0.1em 0 0; /*define a largura da borda*/
+    border-radius: 50%; /*define o quão redondo ficará a estrutura*/
+}
+.earth {
+    top: 5em; /*define posição da terra em superior ou inferior*/
+    left: 5em; /*define a posição da terra em direita ou esquerda*/
+    width: 30em; /*define a largura da estrutura*/
+    height: 30em;  /* define a altura da estrutura*/
+    animation: orbit 36.5s linear infinite; /*define o tempo da animação da órbita da terra no sol*/
+}
+.moon {
+    top: 0; /*define posição da lua em superior ou inferior*/
+    right: 0; /*define a posição da lua em direita ou esquerda*/
+    width: 8em; /*define a largura da estrutura*/
+    height: 8em; /* define a altura da estrutura*/
+    animation: orbit 2.7s linear infinite; /*define o tempo da animação da órbita da lua na terra*/
+}
+
+.earth::before,
+.moon::before {
+    content: "";
+    position: absolute; /*define a posição, sendo ela absoluta*/
+    border-radius: 50%; /*define o quão redondo ficará a estrutura*/
+}
+
+.earth::before {
+    top: 2.8em; /*define posição da terra em superior ou inferior*/
+    right: 2.8em; /*define a posição da terra em direita ou esquerda*/
+    width: 3em; /*define a largura da estrutura*/
+    height: 3em; /* define a altura da estrutura*/
+    background-color: aqua; /*define a cor da tera*/
+}
+
+.moon::before {
+    top: 0.8em; /*define posição da lua em superior ou inferior*/
+    right: 0.2em; /*define a posição da lua em direita ou esquerda*/
+    width: 1.2em; /*define a largura da estrutura*/
+    height: 1.2em; /* define a altura da estrutura*/
+    background-color: silver; /*define a cor da lua*/
+}
+
+@keyframes orbit {
+    to {
+        transform: rotate(360deg); /*defire um giro de 360°*/
+    }
+}
